@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+
+    <!-- run pointcloud_to_laserscan node -->
+    <node pkg="laserscan_from_sick" type="laserscan_from_sick" name="laserscan_from_sick" output="screen" >
+
+        <remap from="cloud_in" to="sick_mrs6xxx/cloud"/>
+        <remap from="scan" to="laserscanFromSick/laser"/>
+        <rosparam>     
+             range_min: 0.5                  
+             range_max: 20                 
+             angle_min: -1.0471975512
+             angle_max: 1.0471975512
+             angle_increment: 0.0022689280276
+             scan_time: 1.0/30.0
+             height_min: 0.05                 
+             height_max: 1                  
+        </rosparam>
+
+    </node>
+
+</launch>
